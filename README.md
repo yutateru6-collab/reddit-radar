@@ -29,6 +29,19 @@ ChatGPT側でWeb検索を行い、このリポジトリのルールに沿って�
 - **最終投稿は人間が確認してから行う**
 - **宣伝より先に、会話への貢献を優先する**
 
+## まず使う
+
+最短手順は [`docs/QUICKSTART.md`](./docs/QUICKSTART.md) を参照。
+
+たとえばChatGPTで次のように頼む。
+
+```text
+Reddit Radar、ザリガニ英語版で。
+最近のRedditから参加価値の高いスレを探して、上位5件。
+```
+
+このrepoが参照できる場合は、古いチャット上の記憶より現行の `SKILL.md` / scoring / safety rules を優先する。
+
 ## Reddit Radarの基本フロー
 
 ```text
@@ -112,15 +125,22 @@ Reddit URL:
 ...
 ```
 
-詳細は以下を参照してください。
+## ファイル構成
 
 - [`SKILL.md`](./SKILL.md) — Reddit Radarの中核ワークフロー
+- [`docs/QUICKSTART.md`](./docs/QUICKSTART.md) — ChatGPTからの使い方
 - [`docs/SCORING.md`](./docs/SCORING.md) — Opportunity Scoreの基準
 - [`docs/WORKFLOW.md`](./docs/WORKFLOW.md) — 検索から返信案までの手順
 - [`docs/OUTPUT_FORMAT.md`](./docs/OUTPUT_FORMAT.md) — 出力形式
 - [`docs/SAFETY.md`](./docs/SAFETY.md) — スパム防止・安全運用
-- [`research/EXISTING_PROJECTS.md`](./research/EXISTING_PROJECTS.md) — 既存OSS調査
+- [`docs/DECISIONS.md`](./docs/DECISIONS.md) — APIアプリにしない等の設計判断
 - [`docs/ROADMAP.md`](./docs/ROADMAP.md) — 将来拡張
+- [`prompts/CHATGPT.md`](./prompts/CHATGPT.md) — ChatGPT用の短い実行指示
+- [`projects/`](./projects) — 公開してよいProject profile
+- [`projects/ZARIGANI.md`](./projects/ZARIGANI.md) — 英語版Web小説のRadar profile
+- [`research/EXISTING_PROJECTS.md`](./research/EXISTING_PROJECTS.md) — RedSignal / Harken / RedoraAI / Devvit調査
+- [`AGENTS.md`](./AGENTS.md) — Codex等がrepoを編集する際の制約
+- [`CHANGELOG.md`](./CHANGELOG.md) — 変更履歴
 
 ## 現在の設計判断
 
@@ -136,6 +156,10 @@ Reddit URL:
 
 必要になった場合のみ、将来Devvit版を別ブランチまたは別ディレクトリで実装する。
 
+## Public repository notice
+
+このrepoはPublic。APIキー、OAuth token、Reddit cookie、password、生徒・顧客の個人情報などは保存しない。
+
 ## Status
 
 **Phase 1: ChatGPT-first / Human-in-the-loop**
@@ -146,5 +170,7 @@ Reddit URL:
 - [x] Opportunity Score設計
 - [x] 標準出力設計
 - [x] 既存OSS調査
+- [x] ChatGPT quickstart / canonical prompt
+- [x] Project profile template
 - [ ] 実際のReddit調査でスコア基準を調整
 - [ ] 小説・英語学習・アプリ開発の3用途で実地テスト
